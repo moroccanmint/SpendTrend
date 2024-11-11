@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Regression</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <section id="calculate">
+        <h2>Calculate</h2>
+        <form id="mlrForm" action="/" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="numVars">Number of Independent Variables:</label>
+                <div>
+                    <input type="radio" id="oneVar" name="num_of_vars" value="1" checked>
+                    <label for="oneVar">One</label>
+                </div>
+                <div>
+                    <input type="radio" id="twoVars" name="num_of_vars" value="2">
+                    <label for="twoVars">Two</label>
+                </div>
+                <div>
+                    <input type="radio" id="threeVars" name="num_of_vars" value="3">
+                    <label for="threeVars">Three</label>
+                </div>
+            </div>
+            <div>
+                <label for="csvFile">Upload CSV File:</label>
+                <input type="file" id="csvFile" accept=".csv" name="csv_upload" required>
+            </div>
+            <div>
+                <label for="indVar">Independent Variable(s) for Prediction (comma-separated values):</label>
+                <input type="text" id="indVar" name="ind_var_predict" pattern="^(\s*\d+\s*,?\s*)*$"
+                    title="Please enter comma-separated numerical values.">
+            </div>
+            <button type="submit" id="calculateBtn">Calculate</button>
+        </form>
+        {% if error_message %}
+        <p>{{ error_message }}</p>
+        {% endif %}
+        {% if results %}
+        <div id="results">
+            <h3>Results</h3>
+            <p>Correlation Coefficient: {{ results.correlation_coefficient }}</p>
+            <p>Correlation Coefficient Description: {{ results.correlation_coefficient_description }}</p>
+            <p>R-squared: {{ results.r_squared }}</p>
+            <p>Equation: {{ results.equation }}</p>
+            <p>Predicted Y values: {{ results.predicted_values }}</p>
+            {% for plot_data in results.plot_data_list %}
+            <img src="data:image/png;base64,{{ plot_data }}" alt="Regression Plot">
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div id="output"></div>
+        <div id="myDiv"></div>
+    </section>
+</body>
+
+</html>

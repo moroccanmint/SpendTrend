@@ -1,0 +1,844 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Raleway", sans-serif;
+	list-style: none;
+	text-decoration: none;
+}
+
+body, html {
+	overflow-x: hidden;
+}
+
+/* Background */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+
+/* NAVBAR */
+
+li, a, .nav-btn {
+	font-weight: 400;
+	font-size: 16px;
+	color: white;
+}
+
+.nav-btn {
+	height: 2.625rem;
+	width: 8.75rem;
+	padding: .3125rem;
+	background-color: #E7B7CB;
+	color: rgb(34, 34, 34);
+	cursor: pointer;
+	font-weight: 600;
+	border-radius: 20px;
+}
+
+.nav-btn:hover {
+	background-color: #d6d6e6;
+	color: #064c4f;
+}
+
+header {
+	z-index: 1;
+	background-color: #69bd8f;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 3.125rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.875rem 10%;
+}
+
+.logo {
+	font-weight: 700;
+	cursor: pointer;
+	color: #ffffff;
+}
+
+.trend {
+	color: #064c4f;
+}
+
+.nav__links {
+	list-style: none;
+}
+
+.nav__links li {
+	display: inline-block;
+	padding: 0px 20px;
+}
+
+.nav__links li a {
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.nav__links li a:hover {
+	color: #064c4f;
+}
+
+.hero {
+	margin-top: 2.5rem;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("mainbg.png");
+	background-position: bottom;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+	-webkit-animation: bg-scrolling-reverse 2.5s infinite;
+	-moz-animation: bg-scrolling-reverse 2.5s infinite;
+	-o-animation: bg-scrolling-reverse 2.5s infinite;
+	animation: bg-scrolling-reverse 2.5s infinite;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-timing-function: linear;
+	-o-animation-timing-function: linear;
+	animation-timing-function: linear;
+	/* background: white; */
+}
+
+.hero-img {
+	height: 470px;
+}
+
+.header-content {
+	color: black !important;
+	text-align: left;
+}
+
+.header-content h2 {
+	text-align: left;
+	font-size: 6.25rem;
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	color: #37695a;
+}
+
+.header-content p {
+	margin-top: 10px;
+	font-size: 1.25rem;
+	font-weight: 300;
+	font-family: "Raleway", sans-serif;	
+}
+
+.see-btn {
+	height: 3.125rem;
+	width: 9.375rem;
+	border-radius: 1.5625rem;
+	font-family: "Raleway", sans-serif;
+	font-size: 1.125rem;
+	font-weight: 600;
+	color:#064c4f;
+	text-decoration: none;
+	background-color: #E7B7CB;
+}
+
+.header-content .startbtn{
+	padding-top: 30px;
+}
+
+html{
+	scroll-behavior: smooth;
+	height: 100%;
+	width: 100%;
+} 
+
+.header-content .resultbtn{
+	margin-top: 50px;
+}
+
+/* --------------------------- ABOUT --------------------------- */
+
+/* --------------------------- ABOUT --------------------------- */
+
+.about{
+	width: 100vw;
+	height: 100vh;
+	/* Spacing around the about section */
+	background-color: #53818b;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.about-container {
+	display: flex;
+	padding-left: 10%;
+	align-items: center;
+}
+
+.about-img {
+	height: 450px;
+}
+
+/* About Section Text */
+.title {
+	font-family: "Raleway", sans-serif;
+	font-size: 4vmin;
+	color: white;
+	padding-bottom: 5rem;
+}
+
+.title h3 {
+	font-family: "Raleway", sans-serif;
+	letter-spacing: -2px;
+}
+
+/* 2 Sides */
+.description{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-self: center;
+	padding-bottom: 30px;
+	color: white;
+	margin-bottom: 30px;
+	margin-left: 100px;
+	margin-right: 100px;
+	text-align: center;
+}
+
+.description .intro{
+	font-size: 40px;
+	margin-top: 70px;
+}
+
+.description .intro .line{
+	width: 100%;
+	height: 1px;
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.btn{
+	margin-top: 30px;
+	cursor: pointer;
+}
+
+/*elements for about.html -----------------------------------------------*/
+.about-2{
+	width: 100vh;
+	height: 100vh;
+	background-color: #48a4a7;
+	text-align: left;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+/*H1 of about.html*/
+.about-2 h1{
+	margin-top: 30px;
+	color: white;
+	margin-bottom: 20px;
+
+}
+
+/* Left */
+.aboutContents{
+	color: white;
+	font-size: 15px;
+	display: flex;
+	flex:60%;
+}
+
+/* Right */
+.aboutContents2{
+	display: flex;
+	flex-direction: column;
+	flex: 40%;
+	justify-content: center;
+	align-items: center;
+	padding-right:90px ;
+}
+
+/*text on the left side*/
+.left{
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	padding-left: 100px;
+	padding-right: 100px;
+	height: auto;
+	text-align: justify;
+}
+
+.right{
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+}
+
+.aboutContents2 img{
+	width:100%;
+	height: auto;
+	image-rendering: pixelated;
+}
+
+.aboutContents2 .bottom-button{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+button{
+	height: 50px;
+	width: 250px;
+	color: #064c4f;
+	font-family: "Raleway", sans-serif;
+	font-weight: 700;
+	font-size: 15px;
+	border-radius: 25px;
+	border: none;
+	background-color: white;
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+}
+
+button:hover{
+	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.19),0 17px 50px 0 rgba(0,0,0,0.14);
+}
+
+/* --------------------------- General Instructions --------------------------- */
+
+.GeneralInstructions {
+	width: 100%;
+	height: 100%;
+	color: white !important;
+	background-color: #37695a;
+}
+
+.Intruct-box {
+	display: flex;
+	flex-direction: row;
+}
+
+.Intruct-top {
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+	justify-content: center;
+	align-items: center;
+	background-color: #3e7262;
+}
+
+.Intruct-top #genints {
+	font-family: "Josefin Sans", sans-serif;
+	letter-spacing: -2px;
+	font-size: 40px;
+	line-height: 35px;
+	text-align: center;
+}
+
+.Intruct-bot {
+	display: flex;
+	flex-direction: column;
+	flex: 50%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+.Intruct-bot p {
+	margin-bottom: 6px;
+}
+
+.Intruct-bot #note {
+	margin-top: 15px;
+}
+
+/* --------------------------- DATA INPUT --------------------------- */
+
+.datainput{
+	width: 100%;
+	height: 100%;
+	background-color: whitesmoke;
+}
+
+.main-box{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.top { 
+	display: flex;
+	flex-direction: row;
+	margin: 40px auto;
+	margin-top: 50px;
+	align-items: center;
+	justify-content: center;
+	font-size: 4vmin;
+	font-weight: 300;
+	/* Data input title */
+}
+
+.top h3{
+	font-family: "Raleway", sans-serif;
+	letter-spacing: -2px;
+	padding-top: 5px;
+}
+
+.bottom { 
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+
+.error-msg {
+	padding: 10%;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	text-align: center;
+	font-size: 50px;
+}
+
+/* Left Box */
+.left-side{
+	flex: 45%;
+}
+
+/* Right Box */
+.right-side{
+	flex: 50%;
+	height: 300px;
+}
+
+/* Left Side Elements */
+
+.left-side{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 300px;
+}
+
+/* Left Box Choices 1 2 3  */
+.Choices{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.Choices .numVars {
+	font-size: 25px;
+}
+
+/* Button Animations :  */
+  
+  form {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+  }
+  
+  label {
+	display: flex;
+	cursor: pointer;
+	font-weight: 500;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 0.375em;
+  }
+  
+  label input {
+	position: absolute;
+	left: -9999px;
+  }
+  
+  label input:checked + span {
+	background-color: #d6d6e6;
+  }
+  
+  label input:checked + span:before {
+	box-shadow: inset 0 0 0 0.4375em #E7B7CB;
+  }
+  
+  label span{
+	display: flex;
+	align-items: center;
+	padding: 0.375em 0.75em 0.375em 0.375em;
+	border-radius: 99em;
+	transition: 0.25s ease;
+  }
+  
+  label span:hover {
+	background-color: #d6d6e6;
+  }
+  
+  label span:before {
+	display: flex;
+	flex-shrink: 0;
+	content: "";
+	background-color: #fff;
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	margin-right: 0.375em;
+	transition: 0.25s ease;
+	box-shadow: inset 0 0 0 0.125em #E7B7CB;
+  }
+  
+/* end of code */
+
+/* spacing bet upper text and radio buttons */
+.Choices div{
+	margin: 20px;
+}
+
+/* Right Side Elements */
+
+.right-side{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.CSV-Upload{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.CSV-Upload label {
+	margin-right: 10px;
+	margin-left: 50px;
+
+}
+
+/* Buttons */
+.CSV-Upload input {
+  color: #64881b;
+  border-radius: 4px;
+ }
+
+
+ .Main-Inputs #calculateBtn { 
+	background-color: #E7B7CB; /* Green */
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+ }
+
+.CSV-Upload, .Main-Inputs div{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+  .Main-Inputs label {
+	margin-right: 15px;
+	text-align: center;
+  }
+
+.Main-Inputs .indivar { 
+	display: flex; 
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100px;
+	margin-top: 10px;
+}
+
+.Main-Inputs .calubtnclass{
+	height: 100px;
+}
+
+.indivar #indVarIn{
+	display: inline-block;
+	margin-top: 10px;
+	width: 48%;
+	line-height: 30px;
+	height: 32px;
+	border: 1px solid #dddbda;
+	border-radius: 4px;
+	background-color: #fff;
+	color: rgb(8, 7, 7);
+	transition: border .1s linear,background-color .1s linear;
+	:focus{
+		border-color: #1b96ff;
+		color: var(--sds-c-input-text-color-focus);
+		box-shadow: rgb(1, 118, 211) 0px 0px 3px 0px;
+	}
+
+}
+
+
+/* --------------------------- OUTPUT --------------------------- */
+
+.Output{
+	width: 100%;
+	height: 100%;
+	background-color: #6CA5B2;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.Output .title {
+	display: flex;
+	width: 30%;
+	text-align: center;
+	font-size: 4vmin;
+	padding: 50px;
+	color: whitesmoke;
+	background-color: #7bbac9;
+}
+
+
+.Output #results {
+	margin-top: 50px;
+	color: white;
+	margin-left: 50px;
+	margin-bottom: 25px; /* Spacing fron green to pic */
+	width: 100%;
+}
+
+.Output img{
+	border-radius: 20px;
+	margin-top: 30px;
+	width: 43%;
+	height: auto !important;
+}
+/* change plot image size */
+
+.Output .img-outer .img-out{
+	display: inline;
+	align-items: center;
+	justify-content: center;
+}
+
+.Output .img-outer{
+	display: inline;
+	align-items: center;
+	justify-content: center;
+}
+
+.results h3,p {
+	font-size: 1.5625rem;
+}
+/* .Output {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .Output img {
+	height: auto !important;
+	max-width: 20%;
+	border-radius: 20px;
+	margin: 10px;
+  }
+  
+  .Output .img-outer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+  }
+  
+  .Output .img-out {
+	display: inline-block;
+  } */
+
+
+/* --------------------------- Testing --------------------------- */
+
+.Testing{
+	width: 100%;
+	height: 100vh;
+	background-color: white;
+	margin: 0;
+}
+
+.Testing .title-test {
+	text-align: center;
+}
+
+.Testing h3 {
+	font-family: "Raleway", sans-serif;
+	font-size: 5vmin;
+	color: #37695a;
+	margin-top: 60px;
+	padding-bottom: 30px;
+	letter-spacing: -2px;
+
+}
+
+/* --------------------------- DEVELOPERS --------------------------- */
+
+.Footer {
+	width: 100%;
+	height: 200px;
+	background-color: #37695a;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.Footer .title {
+	text-align: center;
+	font-size: 4vmin;
+	padding: 50px;
+	color: rgb(0, 0, 0);
+}
+
+.main-container {
+    background: #fff;
+    border-radius: 15px;
+    margin: 1rem;
+    padding: 20px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+h2 {
+    text-align: center;
+}
+
+hr {
+    width: 10rem;
+    margin: 10px auto;
+}
+
+.members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    margin: 8px;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.team-member:hover {
+    transform: scale(1.1);
+}
+
+.members-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+h4{
+	font-family: "Raleway", sans-serif;
+    text-align: center;
+    font-size: 16px;
+	color: white !important;
+}
+
+.team-member p{
+	font-family: "Outfit", sans-serif;
+    text-align: center;
+    font-size: 11px;
+	color: white !important;
+}
+
+.title h3{
+	color: white !important;
+	padding-top: 10px;
+}
+
+  
+@media (max-width: 768px) {
+	.top {
+		flex-direction: column;
+	}
+
+	.Left.Side,
+	.Right.Side {
+		flex-basis: 100%;
+	}
+}
+
+/* FLoat */
+
+.float{
+	position:fixed;
+	width:35px;
+	height:35px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+}
+
+a .coke{
+	display: flex;
+	margin-left: 9px;
+	margin-top: 7px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+

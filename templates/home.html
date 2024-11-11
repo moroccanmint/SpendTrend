@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+		<title>SpendTrend</title>
+	</head>
+	<body id="bod">
+
+		<a href="#bod" class="float">
+			<i class="coke"> ^ </i>
+		</a>
+		<div class="nav-container" id="home-page">
+			<header>
+				<h2 class="logo">SPEND<span class="trend">TREND</span></h2>
+				<nav>
+					<ul class="nav__links">
+						<li><a href="#home-page">Home</a></li>
+						<li><a href="#about-page">About</a></li>
+						<li><a href="#members-page">Members</a></li>
+					</ul>
+				</nav>
+				<a class="cta" href="#calculate-page"><button class="nav-btn">Calculate</button></a>
+			</header>
+		</div>
+		
+		<div class="hero">
+			<div class="left-hero">
+				<div class="header-content" id="hero-page">
+					<h2>Let's</h2>
+					<h2>Predict!</h2>
+					<p>Discover how certain factors affects food expenditure.</p>
+					<p class="hero-description"></p>
+					<div class="resultbtn">
+						{% if results %}
+						<a href="#output-section"><button class="see-btn">{{results.resultss}}</button></a>
+						{% endif %}
+						{% if error_message %}
+						<a href="#output-section"><button class="see-btn">Error Occured</button></a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="right-hero">
+				<img src="static\hero-img.png" class="hero-img">
+			</div>
+		</div>
+		
+		<!-- About Section -->
+		<section class="about" id="about-page">
+			<div class="title">
+				<h3> About Section </h3>
+			</div>
+			<div class="about-container">
+				<div class="left-about">
+					<img src="static\about-img.png" class="about-img">
+				</div>
+				<div class="description">
+					<div class="intro">
+						<p><b>Trouble Budgeting Grocery Expenditure?</b></p>
+						<div class="line"></div>
+					</div>
+					<p>Are you looking to gain insight into your grocery spending habits and plan your budget more effectively? Our
+						application is here to help. By leveraging the power of data analysis and statistical methods like Linear
+						Regression, we offer a simple yet effective tool for predicting your estimated average grocery expenditure.
+						Start taking control of your grocery expenses today!</p>
+					<form action="{{ url_for('about') }}">
+						<button class="btn">Continue Reading About</button>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<section class="GeneralInstructions">
+			<div class="Intruct-box">
+				<div class="Intruct-top">
+					<h3 id="genints">General <br> Instructions</h3>
+				</div>
+				<div class="Intruct-bot">
+					<p><b>1.</b> Place the dependent variable, <b>TOTAL GROCERY EXPENDITURE</b>, in the <b>rightmost column</b>
+						of the CSV file.</p>
+					<p><b>2.</b> Position <b>all independent variables to the left</b> of the dependent variable column.</p>
+					<p><b>3.</b> Recommended independent variables are <b>TOTAL HOUSEHOLD INCOME, TOTAL NUMBER OF FAMILY
+							MEMBERS, and HOUSEHOLD HEAD AGE.</b></p>
+					<p><b>4.</b> The selection of independent variables <b>depends upon the selected number of independent
+							variable/s.</b> This number would determine how many columns to the left of the dependent variable
+						will be utilized starting from column 1. </p>
+					<p id="note"><b>Note : </b> Recommended independent variables are selected based on their presumed impact on
+						TOTAL GROCERY EXPENDITURE.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Data Input -->
+		<section class="datainput" id="calculate-page">
+			<div class="main-box">
+				<!-- Top -->
+				<div class="top">
+					<h3> Data Input </h3>
+				</div>
+				<!-- Bottom -->
+				<div class="bottom">
+					<form action="/" method="POST" enctype="multipart/form-data" id="mlrForm">
+						<div class="left-side">
+							<div class="Choices">
+								<label class="numVars"> Number of</label>
+								<label class="numVars"> <b>Independent Variables: </b> </label>
+								<div class="container">
+									
+										<label>
+											<input type="radio" id="oneVar" name="num_of_vars" value="1" checked>
+											<span>1</span>
+										</label>
+										<label>
+											<input type="radio" id="twoVar" name="num_of_vars" value="2" checked>
+											<span>2</span>
+										</label>
+										<label>
+											<input type="radio" id="threeVar" name="num_of_vars" value="3" checked>
+											<span>3</span>
+										</label>
+									
+								</div>
+							</div>
+						</div>
+						<!-- Right -->
+						<div class="right-side">
+							<div class="CSV-Upload">
+								<label for="csvFile">Upload&nbsp; <b>CSV File:</b></label>
+								<input type="file" id="csvFile" accept=".csv" name="csv_upload" required>
+							</div>
+						
+							<div class="Main-Inputs">
+								<div class="indivar">
+									<label for="indVar">Independent Variable(s) for Prediction (comma-separated values):</label>
+									<input type="text" id="indVarIn" name="ind_var_predict" pattern="^(\s*\d+\s*,?\s*)*$"
+										title="Please enter comma-separated numerical values." required>
+								</div>
+								<div id="calubtn" class="calubtnclass">
+									<button id="calculateBtn">Calculate</button>
+								</div>
+							</div>
+						
+						</div>
+						</form>
+					<!-- Left -->
+
+				</div>
+			</div>
+		</section>
+
+		<!-- Output Sectioin -->
+		<section class="Output" id="output-section">
+			<div class="title">
+				<h3> Output Section </h3>
+			</div>
+			<a id="output-anchor"></a>
+			<div class="bottom">
+				{% if error_message %}
+				<div class="error-msg">
+					<p>{{ error_message }}</p>
+				</div>
+				{% endif %}
+				{% if results %}
+				<div id="results">
+					<h3 id="result-title">Results : </h3>
+					<p>&nbsp;</p>
+					<p> <b>Correlation Coefficient:</b> {{ results.correlation_coefficient }}</p>
+					<p> <b>Correlation Coefficient Description:</b>  {{ results.correlation_coefficient_description }}</p>
+					<p> <b>R-squared:</b>  {{ results.r_squared }}</p>
+					<p> <b>Standard Error of the Estimate:</b> {{ results.standard_error_estimate }}</p>
+					<p> <b>Equation:</b> {{ results.equation }}</p>
+					<p> <b>Predicted Grocery Expenditure:</b> {{ results.predicted_values }}</p>
+					{% for plot_data in results.plot_data_list %}
+					<div class="img-outer">
+						<div class="img-out">
+							<img src="data:image/png;base64,{{ plot_data }}" alt="Regression Plot">
+						</div>
+					</div>
+					
+		
+					{% endfor %}
+				</div>
+				{% endif %}
+			</div>
+		</section>
+
+		<!-- footer -->
+		<section class="Footer" id="members-page">
+			<div class="title">
+				<h3> Developers </h3>
+			</div>
+
+			<div class="members">
+				<div class="team-member">
+					<img class="members-img" src="static/IMG_0006.JPG">
+					<h4>Mark Buduan</h4>
+					<p>Back-End Dev.</p>
+				</div>
+				<div class="team-member">
+					<img class="members-img" src="static/reg.jpg">
+					<h4>Regine Keele</h4>
+					<p>Front-End Dev.</p>
+				</div>
+				<div class="team-member">
+					<img class="members-img" src="static/marc3.jpg" al>
+					<h4>Marc Nacpil</h4>
+					<p>Front-End Dev.</p>
+				</div>
+			</div>
+		</section>
+
+	</body>
+</html>

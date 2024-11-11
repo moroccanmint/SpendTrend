@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>SpendTrend</title>
+</head>
+
+<body id="bod">
+
+    <a href="#bod" class="float">
+        <i class="coke"> ^ </i>
+    </a>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="#hero-page">Home</a></li>
+                <li><a href="#about-page">About</a></li>
+                <li><a href="#calculate-page">Calculate</a></li>
+            </ul>
+        </nav>
+    </div>
+    <section id="hero-page">
+        <header>
+            <div class="header-content" id="head">
+                <h2>SPEND TREND</h2>
+                <h6>ANALYSIS PROGRAM FOR YOUR GROCERY EXPENDITURE</h6>
+                <div class="resultbtn">
+                    {% if results %}
+                    <a href="#output-section">{{results.resultss}}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about-page">
+        <div class="title">
+            <h3> About Section </h3>
+        </div>
+        <div class="description">
+            <div class="intro">
+                <p><b>Trouble Budgeting Grocery Expenditure?</b></p>
+                <div class="line"></div>
+            </div>
+            <p>Are you looking to gain insight into your grocery spending habits and plan your budget more effectively?
+                Our application is here to help. By leveraging the power of data analysis and statistical methods like
+                Linear Regression, we offer a simple yet effective tool for predicting your estimated average grocery
+                expenditure. Start taking control of your grocery expenses today!</p>
+            <form action="{{ url_for('about') }}">
+                <button class="btn">Continue Reading About</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Data Input -->
+    <section class="datainput" id="calculate-page">
+        <div class="main-box">
+            <!-- Top -->
+            <div class="top">
+                <h3> Data Input </h3>
+            </div>
+            <!-- Bottom -->
+            <div class="bottom">
+                <form action="/" method="POST" enctype="multipart/form-data">
+                    <div class="left-side">
+                        <div class="Choices">
+                            <label class="numVars"> Number of</label>
+                            <label class="numVars"> <b>Independent Variables: </b> </label>
+                            <div class="container">
+                                <label>
+                                    <input type="radio" id="oneVar" name="num_of_vars" value="1" checked>
+                                    <span>1</span>
+                                </label>
+                                <label>
+                                    <input type="radio" id="twoVar" name="num_of_vars" value="2">
+                                    <span>2</span>
+                                </label>
+                                <label>
+                                    <input type="radio" id="threeVar" name="num_of_vars" value="3">
+                                    <span>3</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="column-selection">
+                            <label for="selected_columns">Select Independent Variable Columns:</label>
+                            <select id="selected_columns" name="selected_columns" multiple>
+                                {% if df is not none %}
+                                    {% for column in df.columns[:-1] %}
+                                        <option value="{{ column }}">{{ column }}</option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+
+                        </div>
+                    </div>
+                    <!-- Right -->
+                    <div class="right-side">
+                        <div class="CSV-Upload">
+                            <label for="csvFile">Upload&nbsp; <b>CSV File:</b></label>
+                            <input type="file" id="csvFile" accept=".csv" name="csv_upload" required>
+                        </div>
+
+                        <div class="Main-Inputs">
+                            <div class="indivar">
+                                <label for="indVar">Independent Variable(s) for Prediction (comma-separated
+                                    values):</label>
+                                <input type="text" id="indVarIn" name="ind_var_predict" pattern="^(\s*\d+\s*,?\s*)*$"
+                                    title="Please enter comma-separated numerical values.">
+                            </div>
+                            <div id="calubtn" class="calubtnclass">
+                                <button id="calculateBtn">Calculate</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <!-- Left -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Output Sectioin -->
+    <section class="Output" id="output-section">
+        <div class="title">
+            <h3> Output Section </h3>
+        </div>
+        <div class="bottom">
+            {% if error_message %}
+            <p>{{ error_message }}</p>
+            {% endif %}
+            {% if results %}
+            <div id="results">
+                <h3 id="result-title">Results : </h3>
+                <p>&nbsp;</p>
+                <p> <b>Correlation Coefficient:</b> {{ results.correlation_coefficient }}</p>
+                <p> <b>Correlation Coefficient Description:</b> {{ results.correlation_coefficient_description }}</p>
+                <p> <b>R-squared:</b> {{ results.r_squared }}</p>
+                <p> <b>Equation:</b> {{ results.equation }}</p>
+                <p> <b>Predicted Y values:</b> {{ results.predicted_values }}</p>
+                {% for plot_data in results.plot_data_list %}
+                <div class="img-outer">
+                    <div class="img-out">
+                        <img src="data:image/png;base64,{{ plot_data }}" alt="Regression Plot">
+                    </div>
+                </div>
+
+
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- footer -->
+    <section class="Footer">
+        <div class="title">
+            <h3> Developers </h3>
+        </div>
+
+        <div class="members">
+            <div class="team-member">
+                <img src="static/IMG_0006.JPG">
+                <h4>Mark Buduan</h4>
+                <p>Back-End Dev.</p>
+            </div>
+            <div class="team-member">
+                <img src="static/reg.jpg">
+                <h4>Regine Keele</h4>
+                <p>Front-End Dev.</p>
+            </div>
+            <div class="team-member">
+                <img src="static/marc3.jpg" al>
+                <h4>Marc Nacpil</h4>
+                <p>Front-End Dev.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Submit the form
+            this.submit();
+
+            // Scroll to the output section after a short delay
+            setTimeout(function () {
+                const outputAnchor = document.querySelector('#output-section');
+                outputAnchor.scrollIntoView({ behavior: 'smooth' });
+            }, 100); // Adjust the delay time as needed
+        });
+    </script>
+
+</body>
+
+</html>

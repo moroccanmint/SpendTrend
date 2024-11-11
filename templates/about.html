@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/about.css">
+    <title>About</title>
+</head>
+<body>
+    <div class="about-more-container">
+        <!-- Left -->
+        <div class="about-more-left">
+            <h1 class="abt-title">About Our App</h1>
+            <p> The application aims to predict the estimated average grocery expenditure. This applies the concept of data
+                analysis and utilizes the statistical method called Linear regression. This technique assumes whether there
+                is a linear relationship between the one or more independent variable and the dependent variable. It is a
+                great tool for modeling the relationship between variables. It's a simple but effective way to understand
+                these relationships.</p>
+            <br>
+            <p> Users have the flexibility to choose between one and three independent variables, which could include total
+                income, the number of household members, and the age of the primary shopper. These factors are crucial in
+                determining the dependent variable, total grocery expenditure.</p>
+            <br>
+            <p> To make accurate predictions, users need to input data for each variables for both dependent and independent
+                variables covering both past and expected future values. This ensures the model can make more reliable
+                forecasts, optimizing its performance.</p>
+            <br>
+            <p> Overall, the developers are confident that this Grocery Expenditure Prediction application can significantly
+                benefit consumers by helping them manage their finances better. Additionally, it has the potential to
+                enhance the overall grocery shopping experience for everyone involved.</p>
+        </div>
+        <!-- End -->
+        
+        <!-- Right -->
+        <div class="about-more-right">
+            <img class="about-more-img" src="static\about-more-img.png" alt="">
+            <div class="bottom-button">
+                <form action="{{ url_for('index') }}">
+                    <button class="HomeButton">Home Page</button>
+                </form>
+            </div>
+        </div>
+        <!-- end -->
+    </div>
+</body>
+</html>

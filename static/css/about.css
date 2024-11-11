@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #48a4a7;
+    justify-content: center;
+}
+
+/* CONTENTS */
+.about-more-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10%;
+    background-color: #3e9da0;
+}
+
+.about-more-left {
+    padding-right: 15%;
+}
+
+.about-more-right {
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    padding-bottom: 3.125rem;
+    font-size: 4.0625rem;
+    color:#064c4f;
+}
+
+p {
+    line-height: 1.35rem;
+}
+
+img {
+    height: 350px;
+}
+
+.bottom-button {
+    padding-top: 2.5rem;
+    padding-left: 25%;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    width: 160px;
+    height: 40px;
+    background-color: #E7B7CB;
+    border: none;
+    border-radius: 25px;
+    color:#064c4f;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+
+
